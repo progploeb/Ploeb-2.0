@@ -10,6 +10,7 @@ var player = null
 var isLeft = false
 var attack1 = null
 var is_hit = false
+var health = 3
 
 func _physics_process(delta):
 	if (player_chase and player != null ):
@@ -30,7 +31,15 @@ func _physics_process(delta):
 	
 	#Take Damage
 	if is_hit:
+		is_hit = false
 		print("Skeleton hit")
+		health -= 1
+		if(health <= 0):
+			animation_player.play("die")
+			queue_free()
+		else:
+			animation_player.play("hurt")
+		
 
 func _on_vision_area_body_entered(body):
 	if (body.name == "CharacterBody2D"):
@@ -49,12 +58,12 @@ func _on_vision_area_body_exited(body):
 
 func _on_hit_detection_area_body_entered(body):
 	print(body.name)
-	if  body.name == "CharacterBody2D":
-		print("Player's attack detected:", body.name)
-		attack1 = body
-		is_hit = true
-		print("Damage")
-
 
 func _on_hit_detection_area_body_exited(attack):
 	pass # Replace with function body.
+
+
+func _on_hit_detection_area_area_entered(area):
+	if(area.name == "Attack1Area"):
+		print("geil")
+		is_hit = true

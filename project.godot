@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.2", "Mobile")
 
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="Ploeb 2.0"
+
 [input]
 
 left={

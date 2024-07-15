@@ -117,8 +117,8 @@ _data = {
 radius = 75.0
 
 [node name="Skeleton" type="CharacterBody2D" groups=["Hit"]]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 28
+collision_mask = 12
 script = ExtResource("1_dleql")
 
 [node name="SkeletonImage" type="Sprite2D" parent="."]
@@ -153,7 +153,7 @@ collision_layer = 2
 position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_po6sk")
 
+[connection signal="area_entered" from="SkeletonImage/HitDetectionArea" to="." method="_on_hit_detection_area_area_entered"]
 [connection signal="body_entered" from="SkeletonImage/HitDetectionArea" to="." method="_on_hit_detection_area_body_entered"]
-[connection signal="body_exited" from="SkeletonImage/HitDetectionArea" to="." method="_on_hit_detection_area_body_exited"]
 [connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]
 [connection signal="body_exited" from="VisionArea" to="." method="_on_vision_area_body_exited"]
