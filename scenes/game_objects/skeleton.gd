@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 @export var speed = 20
 @export var stop_distance = 10
+
 var player_chase = false
 var player = null
 var isLeft = false
